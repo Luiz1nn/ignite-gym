@@ -16,3 +16,5 @@ export const Routes = () => {
     </Box>
   )
 }
+
+export { AuthNavigatorRoutesProps } from './auth.routes'
