@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
 import { StatusBar } from 'react-native'
-import { Loading } from '@/components'
+import { NativeBaseProvider } from 'native-base'
 import {
   useFonts,
   Roboto_400Regular,
   Roboto_700Bold,
 } from '@expo-google-fonts/roboto'
-import { SignUp } from '@/screens'
 import { THEME } from '@/theme'
-import { NativeBaseProvider } from 'native-base'
+import { Routes } from '@/routes'
+import { Loading } from '@/components'
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold })
@@ -20,7 +20,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <SignUp /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </NativeBaseProvider>
   )
 }

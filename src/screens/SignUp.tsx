@@ -1,13 +1,13 @@
+import { Center, Heading, Image, ScrollView, Text, VStack } from 'native-base'
 import { BackgroundImg, LogoSvg } from '@/assets'
 import { Button, Input } from '@/components'
-import { Center, Heading, Image, ScrollView, Text, VStack } from 'native-base'
 
 export const SignUp = () => (
   <ScrollView
     contentContainerStyle={{ flexGrow: 1 }}
     showsVerticalScrollIndicator={false}
   >
-    <VStack flex={1} bg="gray.700" px={10}>
+    <VStack flex={1} px={10}>
       <Image
         alt="Pessoas treinando"
         source={BackgroundImg}
