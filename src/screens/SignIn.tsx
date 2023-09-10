@@ -1,36 +1,51 @@
+import { Center, Heading, Image, Text, VStack, ScrollView } from 'native-base'
 import { BackgroundImg, LogoSvg } from '@/assets'
-import { Input } from '@/components'
-import { Center, Heading, Image, Text, VStack } from 'native-base'
+import { Button, Input } from '@/components'
 
 export const SignIn = () => (
-  <VStack flex={1} bg="gray.700" px={10}>
-    <Image
-      alt="Pessoas treinando"
-      source={BackgroundImg}
-      defaultSource={BackgroundImg}
-      resizeMode="contain"
-      position="absolute"
-    />
-
-    <Center py={24}>
-      <LogoSvg />
-
-      <Text color="gray.100" fontSize="sm">
-        Treine sua mente e o seu corpo
-      </Text>
-    </Center>
-
-    <Center>
-      <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-        Acesse a conta
-      </Heading>
-
-      <Input
-        placeholder="E-mail"
-        keyboardType="email-address"
-        autoCapitalize="none"
+  <ScrollView
+    contentContainerStyle={{ flexGrow: 1 }}
+    showsVerticalScrollIndicator={false}
+  >
+    <VStack flex={1} bg="gray.700" px={10}>
+      <Image
+        alt="Pessoas treinando"
+        source={BackgroundImg}
+        defaultSource={BackgroundImg}
+        resizeMode="contain"
+        position="absolute"
       />
-      <Input placeholder="Senha" secureTextEntry />
-    </Center>
-  </VStack>
+
+      <Center py={24}>
+        <LogoSvg />
+
+        <Text color="gray.100" fontSize="sm">
+          Treine sua mente e o seu corpo
+        </Text>
+      </Center>
+
+      <Center>
+        <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
+          Acesse a conta
+        </Heading>
+
+        <Input
+          placeholder="E-mail"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+
+        <Input placeholder="Senha" secureTextEntry />
+
+        <Button title="Acessar" />
+      </Center>
+
+      <Center mt={24}>
+        <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
+          Ainda não tem acesso?
+        </Text>
+        <Button title="Criar conta" variant="outline" />
+      </Center>
+    </VStack>
+  </ScrollView>
 )
