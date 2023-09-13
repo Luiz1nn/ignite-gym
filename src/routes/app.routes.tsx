@@ -1,11 +1,11 @@
-import { HomeSvg } from '@/assets'
-import { Home } from '@/screens'
+import { Platform } from 'react-native'
+import { useTheme } from 'native-base'
 import {
   BottomTabNavigationProp,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
-import { useTheme } from 'native-base'
-import { Platform } from 'react-native'
+import { HomeSvg } from '@/assets'
+import { Home } from '@/screens'
 
 type AppRoutes = {
   home: undefined
