@@ -1,4 +1,5 @@
 export * from './Home'
 export * from './History'
+export * from './Profile'
 export * from './SignIn'
 export * from './SignUp'
