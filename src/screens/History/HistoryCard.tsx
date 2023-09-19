@@ -1,6 +1,6 @@
 import { HStack, Heading, Text, VStack } from 'native-base'
 
-export const HistoryCard = () => (
+const HistoryCard = () => (
   <HStack
     w="full"
     px={5}
@@ -31,3 +31,5 @@ export const HistoryCard = () => (
     </Text>
   </HStack>
 )
+
+export default HistoryCard
