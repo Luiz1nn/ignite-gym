@@ -4,11 +4,12 @@ import {
   BottomTabNavigationProp,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
-import { HomeSvg } from '@/assets'
-import { Home } from '@/screens'
+import { HistorySvg, HomeSvg } from '@/assets'
+import { History, Home } from '@/screens'
 
 type AppRoutes = {
   home: undefined
+  history: undefined
 }
 
 export type AppNavigatorRoutesProps = BottomTabNavigationProp<AppRoutes>
@@ -42,6 +43,16 @@ export const AppRoutes = () => {
         options={{
           tabBarIcon: ({ color }) => (
             <HomeSvg fill={color} width={iconSize} height={iconSize} />
+          ),
+        }}
+      />
+
+      <Screen
+        name="history"
+        component={History}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <HistorySvg fill={color} width={iconSize} height={iconSize} />
           ),
         }}
       />
