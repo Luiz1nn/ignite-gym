@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { VStack, ScrollView, Center, Skeleton, Text } from 'native-base'
-import { ScreenHeader, UserPhoto } from '@/components'
+import { Input, ScreenHeader, UserPhoto } from '@/components'
 
 const PHOTO_SIZE = 33
 
@@ -40,6 +40,9 @@ export const Profile = () => {
               Alterar foto
             </Text>
           </TouchableOpacity>
+
+          <Input bg="gray.600" placeholder="Nome" />
+          <Input bg="gray.600" placeholder="E-mail" isDisabled />
         </Center>
       </ScrollView>
     </VStack>
