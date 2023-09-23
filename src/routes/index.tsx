@@ -17,4 +17,5 @@ export const Routes = () => {
   )
 }
 
+export { AppNavigatorRoutesProps } from './app.routes'
 export { AuthNavigatorRoutesProps } from './auth.routes'
