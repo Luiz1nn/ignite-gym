@@ -1,9 +1,9 @@
-import { TouchableOpacity } from 'react-native'
+import { ScrollView, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { Box, HStack, Heading, Icon, Image, Text, VStack } from 'native-base'
 import { Feather } from '@expo/vector-icons'
 import { BodySvg, RepetitionSvg, SeriesSvg } from '@/assets'
 import { Button } from '@/components'
-import { useNavigation } from '@react-navigation/native'
 import { AppNavigatorRoutesProps } from '@/routes'
 
 export const Exercise = () => {
@@ -38,44 +38,46 @@ export const Exercise = () => {
         </HStack>
       </VStack>
 
-      <VStack p={8}>
-        <Image
-          w="full"
-          h={80}
-          source={{
-            uri: 'https://www.dicasdetreino.com.br/wp-content/uploads/2017/05/Tipos-de-Supino.jpg',
-          }}
-          alt="Nome do exercício"
-          mb={3}
-          resizeMode="cover"
-          rounded="lg"
-        />
+      <ScrollView>
+        <VStack p={8}>
+          <Image
+            w="full"
+            h={80}
+            source={{
+              uri: 'https://www.dicasdetreino.com.br/wp-content/uploads/2017/05/Tipos-de-Supino.jpg',
+            }}
+            alt="Nome do exercício"
+            mb={3}
+            resizeMode="cover"
+            rounded="lg"
+          />
 
-        <Box bg="gray.600" rounded="md" pb={4} px={4}>
-          <HStack
-            alignItems="center"
-            justifyContent="space-around"
-            mb={6}
-            mt={5}
-          >
-            <HStack>
-              <SeriesSvg />
-              <Text color="gray.200" ml={2}>
-                3 séries
-              </Text>
+          <Box bg="gray.600" rounded="md" pb={4} px={4}>
+            <HStack
+              alignItems="center"
+              justifyContent="space-around"
+              mb={6}
+              mt={5}
+            >
+              <HStack>
+                <SeriesSvg />
+                <Text color="gray.200" ml={2}>
+                  3 séries
+                </Text>
+              </HStack>
+
+              <HStack>
+                <RepetitionSvg />
+                <Text color="gray.200" ml={2}>
+                  12 repetições
+                </Text>
+              </HStack>
             </HStack>
 
-            <HStack>
-              <RepetitionSvg />
-              <Text color="gray.200" ml={2}>
-                12 repetições
-              </Text>
-            </HStack>
-          </HStack>
-
-          <Button title="Marcar como realizado" />
-        </Box>
-      </VStack>
+            <Button title="Marcar como realizado" />
+          </Box>
+        </VStack>
+      </ScrollView>
     </VStack>
   )
 }

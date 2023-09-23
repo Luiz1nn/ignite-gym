@@ -11,12 +11,13 @@ const HistoryCard = () => (
     alignItems="center"
     justifyContent="space-between"
   >
-    <VStack mr={5}>
+    <VStack mr={5} flex={1}>
       <Heading
         color="white"
         fontSize="md"
         textTransform="capitalize"
         fontFamily="heading"
+        numberOfLines={1}
       >
         Costas
       </Heading>
