@@ -45,7 +45,7 @@ export const SignIn = () => {
 
       const title = isAppError
         ? error.message
-        : 'Não foi possivel entrar. Tente novamente mais tarde.'
+        : 'Não foi possível entrar. Tente novamente mais tarde.'
 
       toast.show({
         title,

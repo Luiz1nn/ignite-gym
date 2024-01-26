@@ -23,7 +23,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       const { data } = await api.post('/sessions', { email, password })
 
       if (data.user) {
-        console.log(data)
+        setUser(data.user)
       }
     } catch (error) {
       throw error
