@@ -16,6 +16,7 @@ module.exports = function (api) {
             '@/routes': './src/routes',
             '@/screens': './src/screens',
             '@/services': './src/services',
+            '@/storage': './src/storage',
             '@/theme': './src/theme',
             '@/utils': './src/utils',
           },
