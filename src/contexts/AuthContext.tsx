@@ -1,7 +1,12 @@
 import { UserDTO } from '@/dtos'
 import { api } from '@/services'
-import { ReactNode, createContext, useState } from 'react'
-import { storageAuthTokenSave, storageUserSave } from '@/storage'
+import { ReactNode, createContext, useEffect, useState } from 'react'
+import {
+  storageAuthTokenGet,
+  storageAuthTokenSave,
+  storageUserGet,
+  storageUserSave,
+} from '@/storage'
 
 export type AuthContextDataProps = {
   user: UserDTO
@@ -65,6 +70,25 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       setIsLoadingUserStorageData(false)
     }
   }
+
+  useEffect(() => {
+    const loadUserData = async () => {
+      try {
+        setIsLoadingUserStorageData(true)
+
+        const userLogged = await storageUserGet()
+        const token = await storageAuthTokenGet()
+
+        if (token && userLogged) userAndTokenUpdate(userLogged, token)
+      } catch (error) {
+        throw error
+      } finally {
+        setIsLoadingUserStorageData(false)
+      }
+    }
+
+    loadUserData()
+  }, [])
 
   return (
     <AuthContext.Provider

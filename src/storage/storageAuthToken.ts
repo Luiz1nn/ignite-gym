@@ -8,3 +8,11 @@ type StorageAuthTokenProps = {
 export async function storageAuthTokenSave({ token }: StorageAuthTokenProps) {
   await AsyncStorage.setItem(AUTH_STORAGE, JSON.stringify({ token }))
 }
+
+export async function storageAuthTokenGet() {
+  const response = await AsyncStorage.getItem(AUTH_STORAGE)
+
+  const { token }: StorageAuthTokenProps = response ? JSON.parse(response) : {}
+
+  return token
+}
