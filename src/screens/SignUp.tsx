@@ -15,6 +15,8 @@ import { BackgroundImg, LogoSvg } from '@/assets'
 import { Button, Input } from '@/components'
 import { AppError } from '@/utils'
 import { api } from '@/services'
+import { useState } from 'react'
+import { useAuth } from '@/hooks'
 
 type FormDataProps = {
   name: string
@@ -37,9 +39,12 @@ const signUpSchema = yup.object({
 })
 
 export const SignUp = () => {
-  const navigation = useNavigation()
+  const [isLoading, setIsLoading] = useState(false)
 
   const toast = useToast()
+  const { signIn } = useAuth()
+
+  const navigation = useNavigation()
 
   const {
     control,
@@ -53,8 +58,13 @@ export const SignUp = () => {
 
   const handleSignUp = async ({ name, email, password }: FormDataProps) => {
     try {
+      setIsLoading(true)
+
       await api.post('/users', { name, email, password })
+      await signIn(email, password)
     } catch (error) {
+      setIsLoading(false)
+
       const isAppError = error instanceof AppError
 
       const title = isAppError
@@ -157,6 +167,7 @@ export const SignUp = () => {
           <Button
             title="Criar e acesssar"
             onPress={handleSubmit(handleSignUp)}
+            isLoading={isLoading}
           />
         </Center>
 
